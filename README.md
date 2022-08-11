@@ -27,8 +27,6 @@ ubuntuserver kubernetes cluster with "hello word"
 4. UDP 8472        → Cluster-Wide Network Comm. — Flannel VXLAN
 ```
 
-
-
 # **Part 2 Creating instances**
 
 Choose `t2.medium`( worker,master) as instance type, choose your own key, select existing security groups and choose the master security group that we just created and finally hit on `launch instance(worker and master)`
@@ -53,7 +51,7 @@ sudo hostnamectl set-hostname master
 bash
 ```
 
-3-ubuntu server for update 
+3-ubuntu server for update
 
 ```
 sudo apt-get update
@@ -221,7 +219,6 @@ sudo systemctl restart docker
 sudo systemctl restart kubelet
 ```
 
-
 3-At this stage, the `kubeadm` will prepare the environment for us. For this we need the private IP of the master node.
 
 ```
@@ -234,7 +231,7 @@ like
 
 ```
 #kubeadm join 172.31.17.170:6443 --token zycl0r.nr9mi4cwwrcc9d19
-    --discovery-token-ca-cert-hash sha256:39b93cd1d5af15d93df9d2ff19120dd4680bd0a920560a93468be62adf220335
+    --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 5-Now, we need to run the following commands to set up local `kubeconfig` on master node.
@@ -284,7 +281,7 @@ sudo systemctl restart kubelet
 2-Remember that we noted `sudo kubeadm join…` command previously. We will now run that command to have them join the cluster. Do not forget to add `sudo` before the command.
 
 ```
-sudo kubeadm join <172.31.21.161:6443 — token 7iwh5m.v8pqnnhjl18l81xh — discovery-token-ca-cert-hash sha256:f7dc94b7d1c86d348074aadd789800268fa516ccf1d43e24d4b9202986d69064> #you will paste kubeadm join commad for master node 4
+sudo kubeadm join <172.31.21.161:6443 — token 7iwh5m.v8pqnnhjl18l81xh — discovery-token-ca-cert-hash sha256:f7xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx> #you will paste kubeadm join commad for master node 4
 ```
 
 Now let’s go to the master node and get the list of nodes. If we did everything correctly, then we should see the new worker node in the list.
